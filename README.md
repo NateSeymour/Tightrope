@@ -1,4 +1,4 @@
-<h2 aline="center">
+<h2 align="center">
     Tightrope
 </h2>
 
