@@ -1,0 +1,34 @@
+{
+  "name": "fitness-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint ./src/*.{vue,ts} ./src/**/*.{vue,ts}",
+    "lint:fix": "eslint --fix ./src/*.{vue,ts} ./src/**/*.{vue,ts}",
+    "dev": "vite",
+    "build": "npm run lint && vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tanstack/vue-query": "^4.26.0",
+    "echarts": "^5.4.1",
+    "keycloak-js": "^20.0.3",
+    "pinia": "^2.0.29",
+    "vue": "^3.2.45",
+    "vue-echarts": "^6.5.4",
+    "vue-router": "^4.1.6"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "eslint": "^8.35.0",
+    "eslint-plugin-vue": "^9.9.0",
+    "sass": "^1.57.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0",
+    "vue-tsc": "^1.0.11"
+  }
+}
