@@ -3,10 +3,10 @@ export default {
         keycloak: {
             url: 'https://auth.seymour.global',
             realm: 'seymour-global',
-            clientId: 'fitness-app',
+            clientId: 'tightrope',
         },
     },
     api: {
-        base: 'https://fitness.seymour.global/api/v1',
+        base: 'https://tightrope.seymour.global/api/v1',
     },
 };

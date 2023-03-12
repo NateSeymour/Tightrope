@@ -1,0 +1,15 @@
+[Unit]
+Description=Tightrope
+After=network.target
+
+[Service]
+User=tightrope
+Group=tightrope
+Type=simple
+ExecStart=/opt/tightrope/target/release/tightrope
+WorkingDirectory=/opt/tightrope
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
