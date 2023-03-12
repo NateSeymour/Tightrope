@@ -11,8 +11,8 @@
 
 <script lang="ts" setup>
 import { dateTimeFormat } from '@/intl';
-import { Metric } from '@/api/metric';
-import { Measurement } from '@/api/measurement';
+import { Metric } from '@/api/metric/metric';
+import { Measurement } from '@/api/metric/measurement';
 import MaterialOverlay from '@/ui/material/MaterialOverlay.vue';
 
 const emit = defineEmits(['click', 'select']);

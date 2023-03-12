@@ -1,13 +1,13 @@
 <template>
     <div v-if="isLoading"></div>
     <div v-else-if="isError"></div>
-    <div v-else-if="data" class="overlay" v-for="metric in data" @click="router.push(`/track/${metric.name}`)" :key="metric.metric_id">
-        <MetricGraph class="chart" :metric="metric" />
+    <div v-else-if="data" class="overlay" v-for="metric in data" @click="router.push(`/metric/track/${metric.name}`)" :key="metric.metric_id">
+        <MetricGraph class="chart" :metric="metric" :display-title="true" />
     </div>
 </template>
 
 <script setup lang="ts">
-import { Metric } from '@/api/metric';
+import { Metric } from '@/api/metric/metric';
 import { useQuery } from '@tanstack/vue-query';
 import { useRouter } from 'vue-router';
 import MetricGraph from './MetricGraph.vue';

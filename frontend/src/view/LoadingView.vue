@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss" scoped>
-@use "@/style/colors";
+@use "@/style/_colors.scss";
 
 .loading-screen {
     position: absolute;

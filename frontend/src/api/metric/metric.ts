@@ -1,5 +1,5 @@
 import { fetchApi } from '@/api';
-import { Measurement } from '@/api/measurement';
+import { Measurement } from '@/api/metric/measurement';
 import { UnitOfMeasurement } from '@/measurement';
 import { usePrefStore } from '@/store/preferences';
 

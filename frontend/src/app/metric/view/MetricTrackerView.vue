@@ -1,6 +1,9 @@
 <template>
     <div class="metric-tracker">
-        <TrackerTimeFrameSelector />
+        <div class="top">
+            <h2 class="metric-title" v-if="data">{{ data.name }}</h2>
+            <TrackerTimeFrameSelector />
+        </div>
 
         <div class="chart-container">
             <MetricGraph v-if="data" :metric="data" />
@@ -9,7 +12,7 @@
         <MeasurementTable v-if="data" :metric="data" class="measurement-list" />
 
         <div class="log-controls">
-            <button @click="router.push(`/log/${metricName}`)">
+            <button @click="router.push(`/metric/log/${metricName}`)">
                 <AddCircleIcon class="add-circle"/>
             </button>
         </div>
@@ -20,10 +23,10 @@
 import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useQuery } from '@tanstack/vue-query';
-import { Metric } from '@/api/metric';
-import TrackerTimeFrameSelector from '@/component/TrackerTimeFrameSelector.vue';
-import MeasurementTable from '@/component/MeasurementTable.vue';
-import MetricGraph from '@/component/MetricGraph.vue';
+import { Metric } from '@/api/metric/metric';
+import TrackerTimeFrameSelector from '@/app/metric/component/MetricTimeFrameSelector.vue';
+import MeasurementTable from '@/app/metric/component/MeasurementTable.vue';
+import MetricGraph from '@/app/metric/component/MetricGraph.vue';
 import AddCircleIcon from '@/ui/material/icon/AddCircleIcon.vue';
 
 const route = useRoute();
@@ -38,7 +41,7 @@ const { data } = useQuery({
 </script>
 
 <style scoped lang="scss">
-@use "@/style/colors";
+@use "@/style/_colors.scss";
 
 .metric-tracker {
     width: 100%;
@@ -46,6 +49,18 @@ const { data } = useQuery({
     display: flex;
     flex-direction: column;
     padding: 1em;
+
+    .top {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .metric-title {
+            color: white;
+            width: 100%;
+            margin-left: 0.25em;
+        }
+    }
 
     .chart-container {
         color: white;
@@ -59,7 +74,9 @@ const { data } = useQuery({
                 outline: none;
             }
         }
-    }    .log-controls {
+    }
+
+    .log-controls {
         display: flex;
         flex-direction: column;
         margin-top: 1em;

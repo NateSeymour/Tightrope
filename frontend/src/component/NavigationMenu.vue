@@ -10,14 +10,14 @@
 
             <div class="metrics submenu" v-if="metrics">
                 <h3>Metrics</h3>
-                <MaterialRouterLink v-for="metric of metrics" :key="metric.metric_id" :to="`/track/${metric.name}`">{{ metric.name }}</MaterialRouterLink>
+                <MaterialRouterLink v-for="metric of metrics" :key="metric.metric_id" :to="`/metric/track/${metric.name}`">{{ metric.name }}</MaterialRouterLink>
             </div>
         </nav>
     </div>
 </template>
 
 <script setup lang="ts">
-import { Metric } from '@/api/metric';
+import { Metric } from '@/api/metric/metric';
 import { useAppStore } from '@/store/app';
 import { useQuery } from '@tanstack/vue-query';
 import MaterialRouterLink from '@/ui/material/MaterialRouterLink.vue';

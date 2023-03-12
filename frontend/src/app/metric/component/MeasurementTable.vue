@@ -20,11 +20,11 @@
 
 <script lang="ts" setup>
 import { Ref, ref, computed } from 'vue';
-import { Metric } from '@/api/metric';
-import { Measurement } from '@/api/measurement';
+import { Metric } from '@/api/metric/metric';
+import { Measurement } from '@/api/metric/measurement';
 import { useRouter } from 'vue-router';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query';
-import MeasurementEl from '@/ui/MeasurementEl.vue';
+import MeasurementEl from '@/app/metric/ui/MeasurementTableRow.vue';
 import DeleteIcon from '@/ui/material/icon/DeleteIcon.vue';
 
 const router = useRouter();
@@ -53,7 +53,7 @@ const { mutate } = useMutation({
 });
 
 function measurementClick(measurement: Measurement) {
-    router.push(`/edit/${props.metric.name}/${measurement.measurement_id}`);
+    router.push(`/metric/edit/${props.metric.name}/${measurement.measurement_id}`);
 }
 
 function measurementSelect(selected: boolean, measurement: Measurement) {

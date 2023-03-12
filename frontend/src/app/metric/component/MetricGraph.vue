@@ -3,17 +3,19 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, onBeforeMount } from 'vue';
 import { useTimeStore } from '@/store/time';
 import { dateTimeFormat } from '@/intl';
-import { Metric } from '@/api/metric';
+import { Metric } from '@/api/metric/metric';
 import { useQuery } from '@tanstack/vue-query';
+import { initializeCharts } from '@/charts';
 import VChart from 'vue-echarts';
 
 const timeStore = useTimeStore();
 
 const props = defineProps<{
     metric: Metric,
+    displayTitle?: boolean,
 }>();
 
 const { data } = useQuery({
@@ -41,7 +43,7 @@ const chart = computed(() => {
 
     return {
         title: {
-            show: true,
+            show: !!props.displayTitle,
             text: props.metric.name,
         },
         dataZoom:[ {
@@ -85,5 +87,9 @@ const chart = computed(() => {
             },
         ],
     };
+});
+
+onBeforeMount(() => {
+    initializeCharts();
 });
 </script>

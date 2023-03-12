@@ -13,7 +13,7 @@ const timeStore = useTimeStore();
 </script>
 
 <style lang="scss" scoped>
-@use "@/style/colors";
+@use "@/style/_colors.scss";
 
 .time-selector {
     width: 100%;

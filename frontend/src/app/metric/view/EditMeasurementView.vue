@@ -16,9 +16,9 @@
 <script lang="ts" setup>
 import { Ref, ref, computed } from 'vue'; 
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query';
-import { Metric } from '@/api/metric';
+import { Metric } from '@/api/metric/metric';
 import { useRoute, useRouter } from 'vue-router';
-import DomainEditor from '@/ui/input/DomainEditor/DomainEditor.vue';
+import DomainEditor from '@/app/metric/ui/input/MetricValueEditor.vue';
 import BestCalendar from '@/ui/input/BestCalendar.vue';
 import MaterialButton from '@/ui/material/MaterialButton.vue';
 

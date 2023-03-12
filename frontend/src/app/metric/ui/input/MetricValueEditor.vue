@@ -12,8 +12,8 @@
 </template>
 
 <script setup lang="ts">
-import { Metric, MetricType } from '@/api/metric';
-import NumericWheel from '@/ui/input/DomainEditor/NumericWheel.vue';
+import { Metric, MetricType } from '@/api/metric/metric';
+import NumericWheel from '@/ui/input/NumericWheel.vue';
 
 const props = defineProps<{
     metric: Metric,

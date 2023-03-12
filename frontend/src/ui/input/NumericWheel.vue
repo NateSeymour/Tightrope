@@ -87,7 +87,7 @@
 import { usePrefStore } from '@/store/preferences';
 import { ref, computed, reactive, Ref, onMounted } from 'vue';
 import { range } from '@/tools/range';
-import { Metric } from '@/api/metric';
+import { Metric } from '@/api/metric/metric';
 
 const props = defineProps<{
     hint?: number,

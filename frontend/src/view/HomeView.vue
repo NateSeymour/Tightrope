@@ -8,8 +8,8 @@
 </template>
 
 <script setup lang="ts">
-import MetricGraphList from '@/component/MetricGraphList.vue';
-import TrackerTimeFrameSelector from '@/component/TrackerTimeFrameSelector.vue';
+import MetricGraphList from '@/app/metric/component/MetricGraphList.vue';
+import TrackerTimeFrameSelector from '@/app/metric/component/MetricTimeFrameSelector.vue';
 </script>
 
 <style scoped lang="scss">

@@ -14,7 +14,7 @@ import { onBeforeMount } from 'vue';
 import { initializeAuth } from '@/keycloak';
 import { useAppStore } from './store/app';
 import { keycloak } from '@/keycloak';
-import Loading from '@/view/application/LoadingView.vue';
+import Loading from '@/view/LoadingView.vue';
 import UserBar from '@/component/UserBar.vue';
 import NavigationMenu from '@/component/NavigationMenu.vue';
 import { useRoute, useRouter } from 'vue-router';
