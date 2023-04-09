@@ -2,6 +2,7 @@
 .vscode
 .DS_Store
 .migration.env
+.idea
 
 # backend
 backend/.idea

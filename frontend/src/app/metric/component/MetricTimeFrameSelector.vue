@@ -29,6 +29,7 @@ const timeStore = useTimeStore();
         color: white;
         font-weight: bold;
         transition: 200ms;
+        cursor: pointer;
 
         &.selected {
             background: colors.$accent;

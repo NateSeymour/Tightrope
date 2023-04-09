@@ -22,6 +22,8 @@ const { isLoading, isError, data } = useQuery({
 
 <style scoped lang="scss">
 .overlay {
+    cursor: pointer;
+
     .chart {
         width: 100%;
         height: 20em;

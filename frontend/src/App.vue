@@ -2,22 +2,27 @@
     <Loading :class="appStore.loggedIn ? 'hidden' : 'loading'" />
 
     <UserBar />
-    <NavigationMenu />
 
-    <div class="viewport-container">
-        <router-view :key="route.fullPath"></router-view>
+    <div class="content">
+        <NavigationMenu class="navigation-menu" />
+
+        <div class="viewport-container">
+            <div class="viewport">
+                <router-view :key="route.fullPath"></router-view>
+            </div>
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { onBeforeMount } from 'vue';
 import { initializeAuth } from '@/keycloak';
-import { useAppStore } from './store/app';
+import { useAppStore } from '@/store/app';
 import { keycloak } from '@/keycloak';
+import { useRoute, useRouter } from 'vue-router';
 import Loading from '@/view/LoadingView.vue';
 import UserBar from '@/component/UserBar.vue';
 import NavigationMenu from '@/component/NavigationMenu.vue';
-import { useRoute, useRouter } from 'vue-router';
 
 const router = useRouter();
 const route = useRoute();
@@ -50,6 +55,7 @@ onBeforeMount(() => {
 
 <style lang="scss">
 @use "@/style/colors";
+@use "@/style/responsive";
 
 html {
     overflow: hidden;
@@ -60,7 +66,6 @@ html {
         height: 100%;
         width: 100%;
         position: fixed;
-        overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
         background: colors.$background;
 
@@ -74,8 +79,28 @@ html {
             grid-template-rows: 4em auto;
             position: relative;
 
-            .viewport-container {
-                overflow-y: scroll;
+            @include responsive.desktop {
+                .content {
+                    width: 100%;
+                    height: 100%;
+                    display: grid;
+                    grid-template-columns: 1fr 4fr;
+                }
+
+                .viewport-container {
+                    overflow-y: auto;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: row;
+
+                    .viewport {
+                        width: 75%;
+                        height: 100%;
+                        padding: 1em;
+                    }
+                }
             }
         }
     }

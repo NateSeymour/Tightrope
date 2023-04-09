@@ -4,7 +4,8 @@
             <svg 
                 @click="appStore.navMenuOpen = !appStore.navMenuOpen" 
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 10 10">
+                viewBox="0 0 10 10"
+                class="hamburger">
                 <path
                     stroke="white"
                     stroke-width="1"
@@ -36,6 +37,7 @@ const appStore = useAppStore();
 
 <style scoped lang="scss">
 @use "@/style/colors";
+@use "@/style/responsive";
 
 .user-bar {
     height: 4em;
@@ -53,19 +55,27 @@ const appStore = useAppStore();
         height: 2em;
         margin-left: 0.25em;
 
-        svg {
-            width: 100%;
-            height: 100%;
+        @include responsive.desktop {
+            .hamburger {
+                display: none;
+            }
+        }
 
-            .middle {
-                &.open {
-                    transition: 250ms;
-                    d: path("M 5,5 h 10");
-                }
+        @include responsive.mobile {
+            .hamburger {
+                width: 100%;
+                height: 100%;
 
-                &.closed {
-                    transition: 250ms;
-                    d: path("M 0,5 h 10");
+                .middle {
+                    &.open {
+                        transition: 250ms;
+                        d: path("M 5,5 h 10");
+                    }
+
+                    &.closed {
+                        transition: 250ms;
+                        d: path("M 0,5 h 10");
+                    }
                 }
             }
         }

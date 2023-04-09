@@ -4,7 +4,9 @@
         class="material-overlay"
         @touchstart="touchStart" 
         @touchend="touchEnd"
-        @touchmove="touchMove">
+        @touchmove="touchMove"
+        @mousedown="touchStart"
+        @mouseup="touchEnd">
         <svg :viewBox="`0 0 ${overlaySize.width} ${overlaySize.height}`" xmlns="http://www.w3.org/2000/svg">
             <circle 
                 :data-touch-state="touchState"
@@ -100,6 +102,7 @@ function touchEnd(e: TouchEvent) {
     left: 0;
     width: 100%;
     height: 100%;
+    cursor: pointer;
 
     svg {
         position: absolute;

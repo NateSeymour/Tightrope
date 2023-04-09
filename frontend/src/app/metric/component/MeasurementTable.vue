@@ -110,7 +110,7 @@ function deleteMeasurements() {
     table {
         display: flex;
         flex-direction: column;
-        overflow-y: scroll;
+        overflow-y: auto;
         color: white;
     }
 }

@@ -30,6 +30,7 @@ const localizedValue = props.measurement.value * unit.conversion;
     .weight-el {
         color: white;
         height: 3em;
+        width: 100%;
 
         .content {
             width: 100%;

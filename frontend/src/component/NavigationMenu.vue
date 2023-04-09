@@ -1,53 +1,35 @@
 <template>
     <div :class="['navigation-menu', appStore.navMenuOpen ? 'open' : 'closed']">
         <nav>
-            <div class="application submenu">   
-                <h3>Application</h3>
+            <div class="tightrope submenu">
+                <h3>Tightrope</h3>
                 <MaterialRouterLink to="/">Home</MaterialRouterLink>
                 <MaterialRouterLink to="/preferences">Preferences</MaterialRouterLink>
             </div>
-            
-
-            <div class="metrics submenu" v-if="metrics">
-                <h3>Metrics</h3>
-                <MaterialRouterLink v-for="metric of metrics" :key="metric.metric_id" :to="`/metric/track/${metric.name}`">{{ metric.name }}</MaterialRouterLink>
+            <div class="application submenu">   
+                <h3>Apps</h3>
+                <MaterialRouterLink  :to="`/metric`">Metrics</MaterialRouterLink>
             </div>
         </nav>
     </div>
 </template>
 
 <script setup lang="ts">
-import { Metric } from '@/api/metric/metric';
 import { useAppStore } from '@/store/app';
-import { useQuery } from '@tanstack/vue-query';
 import MaterialRouterLink from '@/ui/material/MaterialRouterLink.vue';
 
 const appStore = useAppStore();
-
-const { data: metrics } = useQuery({
-    queryKey: ['metric-list'],
-    queryFn: Metric.fetchList,
-});
 </script>
 
 <style scoped lang="scss">
 @use "@/style/colors";
+@use "@/style/responsive";
 
 .navigation-menu {
-    position: fixed;
-    top: 4em;
-    left: -100%;
-    width: 100%;
-    height: calc(100% - 4em);
-    transition: 350ms;
     background: colors.$background-depth;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     z-index: 999999;
-
-    &.open {
-        left: 0;
-    }
 
     nav {
         display: flex;
@@ -61,6 +43,19 @@ const { data: metrics } = useQuery({
 
         .submenu {
             margin-bottom: 2em;
+        }
+    }
+
+    @include responsive.mobile {
+        position: fixed;
+        top: 4em;
+        left: -100%;
+        transition: 350ms;
+        width: 100%;
+        height: calc(100% - 4em);
+
+        &.open {
+            left: 0;
         }
     }
 }
